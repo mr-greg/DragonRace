@@ -1,6 +1,8 @@
 package me.dragonrace.listeners;
 
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -47,7 +49,10 @@ public class RegisterModalListener extends ListenerAdapter {
             Role confirme = event.getGuild().getRoleById(992899372838817912L);
 
             staff.sendMessageEmbeds(eb.build()).queue();
-            event.getMember().getRoles().add(confirme);
+            event.reply("Votre inscription a bien été prise en compte, vous avez maintenant accès au salon de participants !").setEphemeral(true).queue();
+            event.getGuild().addRoleToMember(inscrit, confirme).queue();
+
+            // event.getMember().getRoles().add(confirme);
 
 
 
