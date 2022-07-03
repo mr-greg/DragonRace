@@ -28,7 +28,7 @@ public class EmbedCommand extends ListenerAdapter {
             // DESCRIPTION
             eb.setDescription("Afin de vous inscrire ou vous désinscrire au prochain DragonRace, veuillez cliquer sur le bouton correspondant à votre choix !" +
                     "\n\nNous vous remercions de vous inscrire **UNIQUEMENT** si vous êtes **100% SÛR** de pouvoir être **PRÉSENT** !" +
-                    "\n\n*En cas de désistement, merci de contacter @Mauc en MP le plus tôt possible, toute annulation abusive pourra se voir" +
+                    "\n\n*En cas de désistement tardif, merci de contacter @Mauc en MP le plus tôt possible, toute annulation abusive pourra se voir" +
                     " bannir des prochains évènements.*");
 
             // AUTEUR
