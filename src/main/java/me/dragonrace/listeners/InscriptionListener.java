@@ -14,6 +14,7 @@ public class InscriptionListener extends ListenerAdapter {
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         TextChannel inscription = event.getGuild().getTextChannelById(992866620437430323L);
         Message message = event.getMessage();
+        if (event.getAuthor().isBot()) return;
         if (event.getTextChannel().equals(inscription) && !message.getContentRaw().equals("/inscription")){
             message.delete().queue();
         }

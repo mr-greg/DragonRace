@@ -1,7 +1,10 @@
 package me.dragonrace.commands;
 
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.Modal;
@@ -14,24 +17,12 @@ import java.nio.channels.Channel;
 public class RegisterCommand extends ListenerAdapter {
 
     @Override
-    public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
+    public void onButtonInteraction(@NotNull ButtonInteractionEvent event) {
 
+        // BOUTON INSCRIPTION
 
-
-        if (event.getName().equalsIgnoreCase("inscription")){
-
+        if (event.getButton().getId().equals("inscription-bouton")){
             TextChannel inscriptionChannel = event.getGuild().getTextChannelById(992866620437430323L);
-
-            if (event.getChannel() != inscriptionChannel){
-                event.reply("Merci de faire votre demande dans le salon adapté.");
-            }
-
-            // CHAMPS FORMULAIRE INSCRIPTION
-            /*TextInput discordChef = TextInput.create("discord-chef", "Discord Chef Équipe", TextInputStyle.SHORT)
-                    .setMinLength(1)
-                    .setRequired(true)
-                    .setPlaceholder("Le pseudo discord exact chef d'équipe (sans le #)")
-                    .build(); */
 
             TextInput minecraftChef = TextInput.create("minecraft-chef", "Pseudo Minecraft Chef", TextInputStyle.SHORT)
                     .setMinLength(1)
@@ -69,6 +60,16 @@ public class RegisterCommand extends ListenerAdapter {
 
             event.replyModal(modal).queue();
 
+        } else if (event.getButton().getId().equals("desinscription-bouton")){
+            Member membre = event.getMember();
+            Role confirme = event.getGuild().getRoleById(992899372838817912L);
+            TextChannel staff = event.getGuild().getTextChannelById(992866238894190712L);
+
+
+            event.getGuild().removeRoleFromMember(membre, confirme).queue();
+            event.reply("Tu as bien été désinscrit de l'évènement.").setEphemeral(true).queue();
+
+            staff.sendMessage(membre.getAsMention() + " s'est désinscrit de l'évènement en cours.").queue();
         }
     }
 }
