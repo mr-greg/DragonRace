@@ -1,8 +1,6 @@
 package me.dragonrace.listeners;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -28,7 +26,7 @@ public class RegisterModalListener extends ListenerAdapter {
             String idInscrit = Objects.requireNonNull(event.getMember()).getId();
 
             // CHANGER L'ID DU SALON POUR LE SALON STAFF ICI
-            TextChannel staff = event.getGuild().getTextChannelById(992866238894190712L);
+            TextChannel staff = event.getGuild().getTextChannelById(991007837499043920L);
             if (staff == null) return;
 
             EmbedBuilder eb = new EmbedBuilder();
@@ -46,7 +44,8 @@ public class RegisterModalListener extends ListenerAdapter {
                     "\nLa chaîne Twitch : " + chaineTwitch
             );
 
-            Role confirme = event.getGuild().getRoleById(992899372838817912L);
+            // LE ROLE DONNE LORS DE L'INSCRIPTION A CHANGER
+            Role confirme = event.getGuild().getRoleById(993558225066659980L);
 
             staff.sendMessageEmbeds(eb.build()).queue();
             event.reply("Votre inscription a bien été prise en compte, vous avez maintenant accès au salon de participants !").setEphemeral(true).queue();

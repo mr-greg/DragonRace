@@ -26,10 +26,9 @@ public class EmbedCommand extends ListenerAdapter {
             eb.setColor(new Color(255, 105, 180));
 
             // DESCRIPTION
-            eb.setDescription("Afin de vous inscrire ou vous désinscrire au prochain DragonRace, veuillez cliquer sur le bouton correspondant à votre choix !" +
-                    "\n\nNous vous remercions de vous inscrire **UNIQUEMENT** si vous êtes **100% SÛR** de pouvoir être **PRÉSENT** !" +
-                    "\n\n*En cas de désistement tardif, merci de contacter @Mauc en MP le plus tôt possible, toute annulation abusive pourra se voir" +
-                    " bannir des prochains évènements.*");
+            eb.setDescription("**Jeudi 14 juin** à partir de **20H** aura lieu une soirée **BedWars** !" +
+                    "\n\nSi vous souhaitez y participer, n'hésitez pas à vous inscrire en cliquant sur le bouton ci-dessous." +
+                    "\n\n*Les teams seront tirées au sort (si vous souhaitez absolument jouer avec quelqu'un, vous pourrez le préciser dans le formulaire d'inscription !*");
 
             // AUTEUR
             // eb.setAuthor("Zaack", null, null);

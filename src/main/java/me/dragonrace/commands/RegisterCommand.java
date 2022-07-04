@@ -3,7 +3,6 @@ package me.dragonrace.commands;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
@@ -12,7 +11,6 @@ import net.dv8tion.jda.api.interactions.components.text.TextInput;
 import net.dv8tion.jda.api.interactions.components.text.TextInputStyle;
 import org.jetbrains.annotations.NotNull;
 
-import java.nio.channels.Channel;
 
 public class RegisterCommand extends ListenerAdapter {
 
@@ -22,30 +20,20 @@ public class RegisterCommand extends ListenerAdapter {
         // BOUTON INSCRIPTION
 
         if (event.getButton().getId().equals("inscription-bouton")){
-            TextChannel inscriptionChannel = event.getGuild().getTextChannelById(992866620437430323L);
+            TextChannel inscriptionChannel = event.getGuild().getTextChannelById(993555973832708178L);
 
-            TextInput minecraftChef = TextInput.create("minecraft-chef", "Pseudo Minecraft Chef", TextInputStyle.SHORT)
+            TextInput minecraftChef = TextInput.create("minecraft-chef", "Votre pseudo Minecraft", TextInputStyle.SHORT)
                     .setMinLength(1)
+                    .setMaxLength(30)
                     .setRequired(true)
-                    .setPlaceholder("Le pseudo Minecraft exact du chef d'équipe")
+                    .setPlaceholder("Votre pseudo Minecraft exact pour la whitelist !")
                     .build();
 
-            TextInput minecraftMembre1 = TextInput.create("minecraft-membre1", "Pseudo Minecraft Membre 1", TextInputStyle.SHORT)
+            TextInput minecraftMembre1 = TextInput.create("minecraft-membre1", "Coéquipier optionnel", TextInputStyle.SHORT)
                     .setMinLength(1)
-                    .setRequired(true)
-                    .setPlaceholder("Le pseudo Minecraft exact du premier membre")
-                    .build();
-
-            TextInput minecraftMembre2 = TextInput.create("minecraft-membre2", "Pseudo Minecraft Membre 2", TextInputStyle.SHORT)
-                    .setMinLength(1)
-                    .setRequired(true)
-                    .setPlaceholder("Le pseudo Minecraft exact du second membre")
-                    .build();
-
-            TextInput chaineTwitch = TextInput.create("twitch-chaine", "Chaîne Twitch", TextInputStyle.SHORT)
-                    .setMinLength(1)
-                    .setRequired(true)
-                    .setPlaceholder("Chaîne Twitch du chef d'équipe")
+                    .setMaxLength(30)
+                    .setRequired(false)
+                    .setPlaceholder("Pseudo Minecraft de votre teammate (optionnel")
                     .build();
 
 
@@ -53,17 +41,16 @@ public class RegisterCommand extends ListenerAdapter {
             Modal modal = Modal.create("inscription-modal", "Inscription DragonRace")
                     .addActionRows(
                             ActionRow.of(minecraftChef),
-                            ActionRow.of(minecraftMembre1),
-                            ActionRow.of(minecraftMembre2),
-                            ActionRow.of(chaineTwitch))
+                            ActionRow.of(minecraftMembre1))
                     .build();
 
             event.replyModal(modal).queue();
 
         } else if (event.getButton().getId().equals("desinscription-bouton")){
             Member membre = event.getMember();
-            Role confirme = event.getGuild().getRoleById(992899372838817912L);
-            TextChannel staff = event.getGuild().getTextChannelById(992866238894190712L);
+            // CHANGER ICI
+            Role confirme = event.getGuild().getRoleById(993558225066659980L);
+            TextChannel staff = event.getGuild().getTextChannelById(991007837499043920L);
 
 
             event.getGuild().removeRoleFromMember(membre, confirme).queue();
