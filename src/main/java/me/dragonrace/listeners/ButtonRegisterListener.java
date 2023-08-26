@@ -1,4 +1,4 @@
-package me.dragonrace.commands;
+package me.dragonrace.listeners;
 
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.interactions.components.text.TextInputStyle;
 import org.jetbrains.annotations.NotNull;
 
 
-public class RegisterCommand extends ListenerAdapter {
+public class ButtonRegisterListener extends ListenerAdapter {
 
     @Override
     public void onButtonInteraction(@NotNull ButtonInteractionEvent event) {
@@ -38,7 +38,7 @@ public class RegisterCommand extends ListenerAdapter {
 
 
             // CREATION DU FORMULAIRE
-            Modal modal = Modal.create("inscription-modal", "Inscription DragonRace")
+            Modal modal = Modal.create("inscription-modal", "Inscription BedWars")
                     .addActionRows(
                             ActionRow.of(minecraftChef),
                             ActionRow.of(minecraftMembre1))

@@ -19,8 +19,8 @@ public class RegisterModalListener extends ListenerAdapter {
 
             String minecraftChef = event.getValue("minecraft-chef").getAsString();
             String minecraftMembre1 = event.getValue("minecraft-membre1").getAsString();
-            String minecraftMembre2 = event.getValue("minecraft-membre2").getAsString();
-            String chaineTwitch = event.getValue("twitch-chaine").getAsString();
+            // String minecraftMembre2 = event.getValue("minecraft-membre2").getAsString();
+            // String chaineTwitch = event.getValue("twitch-chaine").getAsString();
 
             Member inscrit = event.getMember();
             String idInscrit = Objects.requireNonNull(event.getMember()).getId();
@@ -39,10 +39,8 @@ public class RegisterModalListener extends ListenerAdapter {
 
             eb.setDescription(
                     "<@" + idInscrit + "> s'est inscrit !" +
-                    "\nPseudo Minecraft du chef : " + minecraftChef + "" +
-                    "\nPseudo Minecraft des membres : `" + minecraftMembre1 + "` `" + minecraftMembre2 + "` " +
-                    "\nLa chaîne Twitch : " + chaineTwitch
-            );
+                    "\nSon pseudo Minecraft : " + minecraftChef + "" +
+                    "\nPseudo Minecraft de son coéquipier : \"" + minecraftMembre1 + "\"" );
 
             // LE ROLE DONNE LORS DE L'INSCRIPTION A CHANGER
             Role confirme = event.getGuild().getRoleById(993558225066659980L);

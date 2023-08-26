@@ -1,7 +1,7 @@
 package me.dragonrace;
 
 import me.dragonrace.commands.EmbedCommand;
-import me.dragonrace.commands.RegisterCommand;
+import me.dragonrace.listeners.ButtonRegisterListener;
 import me.dragonrace.listeners.InscriptionListener;
 import me.dragonrace.listeners.RegisterModalListener;
 import net.dv8tion.jda.api.JDA;
@@ -22,13 +22,13 @@ public class DiscordBot {
                 .enableIntents(GatewayIntent.GUILD_MESSAGES)
                 .enableIntents(GatewayIntent.DIRECT_MESSAGES)
                 .setActivity(Activity.competing("Dragon Race"))
-                .addEventListeners(new RegisterCommand())
+                .addEventListeners(new ButtonRegisterListener())
                 .addEventListeners(new EmbedCommand())
                 .addEventListeners(new InscriptionListener())
                 .addEventListeners(new RegisterModalListener())
                 .build().awaitReady();
 
-        Guild guild = bot.getGuildById(537073420207259668L);
+        Guild guild = bot.getGuildById(950342499166216192L);
         if (guild != null){
             guild.upsertCommand("inscription", "Inscription au prochain Event").queue();
             guild.upsertCommand("embed", "Ajout d'un embed").queue();

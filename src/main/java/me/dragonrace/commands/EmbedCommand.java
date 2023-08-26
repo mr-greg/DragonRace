@@ -18,7 +18,7 @@ public class EmbedCommand extends ListenerAdapter {
             EmbedBuilder eb = new EmbedBuilder();
 
             // TITRE
-            eb.setTitle("Inscription DragonRace", null);
+            eb.setTitle("Inscription BedWars", null);
 
             // COULEUR
             eb.setColor(Color.PINK);
@@ -26,7 +26,7 @@ public class EmbedCommand extends ListenerAdapter {
             eb.setColor(new Color(255, 105, 180));
 
             // DESCRIPTION
-            eb.setDescription("**Jeudi 14 juin** à partir de **20H** aura lieu une soirée **BedWars** !" +
+            eb.setDescription("**Vendredi 22 juillet** à partir de **20H** aura lieu une soirée **BedWars** !" +
                     "\n\nSi vous souhaitez y participer, n'hésitez pas à vous inscrire en cliquant sur le bouton ci-dessous." +
                     "\n\n*Les teams seront tirées au sort (si vous souhaitez absolument jouer avec quelqu'un, vous pourrez le préciser dans le formulaire d'inscription !*");
 

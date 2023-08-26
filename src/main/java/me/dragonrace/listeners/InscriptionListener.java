@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class InscriptionListener extends ListenerAdapter {
 
-    // SUPPRIME LES MESSAGES AUTRE QUE LA COMMANDE /INSCRIPTION DANS LE SALON
+    // SUPPRIME LES MESSAGES AUTRE QUE LA COMMANDE /INSCRIPTION DANS LE SALON !
     @Override
     public void onMessageReceived(@NotNull MessageReceivedEvent event) {
         TextChannel inscription = event.getGuild().getTextChannelById(992866620437430323L);
